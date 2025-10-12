@@ -14,6 +14,7 @@ A FastAPI-based Natural Language Processing API that extracts intent and entitie
 ## Table of Contents
 
 - [Installation](#installation)
+- [Docker Deployment](#docker-deployment)
 - [Setup](#setup)
 - [Running the Application](#running-the-application)
 - [API Endpoints](#api-endpoints)
@@ -22,6 +23,35 @@ A FastAPI-based Natural Language Processing API that extracts intent and entitie
 - [Intent Types](#intent-types)
 - [FHIR Resources](#fhir-resources)
 - [API Documentation](#api-documentation)
+
+## Docker Deployment
+
+### Quick Start with Docker (Recommended)
+
+The fastest way to run the application is using Docker:
+
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+
+# Or run in detached mode
+docker-compose up -d --build
+```
+
+The API will be available at `http://localhost:8000`
+
+### Docker Commands
+
+```bash
+# View logs
+docker-compose logs -f
+
+# Stop the container
+docker-compose down
+
+# Rebuild after code changes
+docker-compose up --build --force-recreate
+```
 
 ## Installation
 
