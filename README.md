@@ -34,6 +34,7 @@ A FastAPI-based Natural Language Processing API that extracts intent and entitie
 ### Step 1: Clone or Navigate to the Project
 
 ```bash
+git clone https://github.com/beloveddie/OnyeBackend.git
 cd backend
 ```
 
