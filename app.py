@@ -102,6 +102,7 @@ class AgentResponse(BaseModel):
     query: str
     generated_code: str
     result: Any
+    data: Optional[Dict[str, Any]] = None  # Structured data for visualizations
     natural_language_response: str
     execution_time: float
 
@@ -126,7 +127,8 @@ Rules:
 - Use the DataFrame names as provided: patients, conditions, medications, medication_requests, observations, practitioners
 - Write clean, efficient pandas code
 - Handle edge cases (empty results, type conversions)
-- For counting, use .shape[0] or len()
+- **IMPORTANT: Always return the actual data/records, not just counts**
+- For queries asking "how many", return the filtered DataFrame so we can count AND see the data
 - For filtering, use boolean indexing
 - Join DataFrames when needed using merge()
 - Return the code wrapped in ```python and ``` markers
@@ -134,9 +136,10 @@ Rules:
 - The code should evaluate to a result that can be displayed
 
 Example queries:
-- "How many patients have diabetes?" → patients.merge(conditions, left_on='id', right_on='patient_id')[conditions['condition'].str.contains('diabetes', case=False)].shape[0]
+- "How many patients have diabetes?" → patients.merge(conditions, left_on='id', right_on='patient_id')[conditions['condition'].str.contains('diabetes', case=False, na=False)][['name', 'gender', 'age', 'condition']].drop_duplicates()
 - "List all female patients over 60" → patients[(patients['gender'] == 'female') & (patients['age'] > 60)]
-- "What medications is patient-1 taking?" → medication_requests[medication_requests['patient_id'] == 'patient-1'].merge(medications, left_on='medication_id', right_on='id')[['name', 'status']]
+- "What medications is patient-1 taking?" → medication_requests[medication_requests['patient_id'] == 'patient-1'].merge(medications, left_on='medication_id', right_on='id')[['name', 'status', 'form']]
+- "Show me patients with hypertension" → patients.merge(conditions, left_on='id', right_on='patient_id')[conditions['condition'].str.contains('hypertension', case=False, na=False)][['name', 'gender', 'age', 'condition']]
 """
 
 
@@ -226,6 +229,129 @@ def generate_natural_language_response(query: str, result: Any) -> str:
         return f"Result: {result}"
 
 
+def format_data_for_visualization(result: Any, query: str) -> Dict[str, Any]:
+    """Format result into visualization-friendly data structures"""
+    data = {
+        "type": None,
+        "value": None,
+        "count": None,
+        "table": None,
+        "chart": None,
+        "cards": None
+    }
+    
+    try:
+        # Handle different result types
+        if isinstance(result, (int, float)):
+            # Single numeric value - good for cards and simple displays
+            data["type"] = "numeric"
+            data["value"] = result
+            data["count"] = result
+            data["cards"] = [{"label": query, "value": result}]
+            
+        elif isinstance(result, list) and len(result) > 0:
+            # List of records (DataFrame.to_dict('records'))
+            data["type"] = "table"
+            data["count"] = len(result)
+            data["table"] = {
+                "columns": list(result[0].keys()) if result else [],
+                "rows": result,
+                "total": len(result)
+            }
+            
+            # Try to extract numeric data for charts
+            first_record = result[0]
+            numeric_fields = [k for k, v in first_record.items() if isinstance(v, (int, float))]
+            label_fields = [k for k, v in first_record.items() if isinstance(v, str)]
+            
+            if numeric_fields and label_fields:
+                # Create chart data
+                data["chart"] = {
+                    "labels": [str(r.get(label_fields[0], '')) for r in result[:20]],  # Limit to 20 for readability
+                    "datasets": [
+                        {
+                            "label": field,
+                            "data": [r.get(field, 0) for r in result[:20]]
+                        } for field in numeric_fields[:3]  # Limit to 3 datasets
+                    ]
+                }
+            
+            # Create summary cards with count
+            summary_cards = [{"label": "Total Count", "value": len(result)}]
+            
+            if len(result) <= 10:
+                summary_cards.extend([
+                    {"label": f"Record {i+1}", "data": r}
+                    for i, r in enumerate(result)
+                ])
+            else:
+                summary_cards.extend([
+                    {"label": "Showing", "value": f"{min(10, len(result))} of {len(result)} records"},
+                    {"label": "First Record", "data": result[0]},
+                    {"label": "Last Record", "data": result[-1]}
+                ])
+            
+            data["cards"] = summary_cards
+                
+        elif isinstance(result, dict):
+            # Dictionary result (Series.to_dict() or custom dict)
+            data["type"] = "dict"
+            data["count"] = len(result)
+            data["table"] = {
+                "columns": ["Key", "Value"],
+                "rows": [{"Key": k, "Value": v} for k, v in result.items()],
+                "total": len(result)
+            }
+            
+            # Check if values are numeric for chart
+            numeric_values = [v for v in result.values() if isinstance(v, (int, float))]
+            if len(numeric_values) == len(result):
+                data["chart"] = {
+                    "labels": list(result.keys())[:20],
+                    "datasets": [{
+                        "label": "Values",
+                        "data": list(result.values())[:20]
+                    }]
+                }
+            
+            # Create cards
+            data["cards"] = [
+                {"label": str(k), "value": v}
+                for k, v in list(result.items())[:10]
+            ]
+            
+        elif isinstance(result, list) and len(result) == 0:
+            # Empty list
+            data["type"] = "table"
+            data["count"] = 0
+            data["table"] = {
+                "columns": [],
+                "rows": [],
+                "total": 0
+            }
+            data["cards"] = [{"label": "Total Count", "value": 0}]
+            
+        elif isinstance(result, str):
+            # String result
+            data["type"] = "text"
+            data["value"] = result
+            data["cards"] = [{"label": "Result", "value": result}]
+            
+        else:
+            # Fallback
+            data["type"] = "unknown"
+            data["value"] = str(result)
+            data["cards"] = [{"label": "Result", "value": str(result)}]
+            
+    except Exception as e:
+        # If formatting fails, return basic structure
+        data["type"] = "error"
+        data["value"] = str(result)
+        data["error"] = str(e)
+    
+    return data
+
+
 @app.get("/")
 def read_root():
     return {
@@ -311,12 +437,17 @@ def query_fhir_data(request: QueryRequest):
         nl_response = generate_natural_language_response(request.query, result)
         print(f"Natural Language Response:\n{nl_response}")
         
+        # Step 4: Format data for visualizations
+        formatted_data = format_data_for_visualization(result, request.query)
+        print(f"Formatted Data Type: {formatted_data.get('type')}")
+        
         execution_time = (datetime.now() - start_time).total_seconds()
         
         return AgentResponse(
             query=request.query,
             generated_code=generated_code,
             result=result,
+            data=formatted_data,
             natural_language_response=nl_response,
             execution_time=execution_time
         )
