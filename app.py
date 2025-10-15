@@ -1,369 +1,349 @@
 from typing import Union, Dict, List, Any, Optional
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import spacy
-from spacy.matcher import Matcher
+import json
+import pandas as pd
+from anthropic import Anthropic
+import os
 from datetime import datetime
-import random
 
-app = FastAPI()
+from dotenv import load_dotenv
+load_dotenv()
 
-# Load spaCy model (install with: python -m spacy download en_core_web_sm)
-try:
-    nlp = spacy.load("en_core_web_sm")
-except:
-    raise RuntimeError("Please install spaCy model: python -m spacy download en_core_web_sm")
+app = FastAPI(title="Healthcare FHIR Agent API", version="2.0.0")
 
-# Initialize matcher for pattern-based intent detection
-matcher = Matcher(nlp.vocab)
+# Initialize Anthropic client
+client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
-# Define intent patterns
-patterns = {
-    "get_patient": [
-        [{"LOWER": "get"}, {"LOWER": "patient"}],
-        [{"LOWER": "find"}, {"LOWER": "patient"}],
-        [{"LOWER": "retrieve"}, {"LOWER": "patient"}],
-        [{"LOWER": "show"}, {"LOWER": "patient"}],
-        [{"LOWER": "show"}, {"LOWER": "me"}, {"LOWER": "patient"}],
-        [{"LOWER": "show"}, {"OP": "?"}, {"LOWER": {"IN": ["patient", "patients"]}}],
-        [{"LOWER": "list"}, {"LOWER": {"IN": ["patient", "patients"]}}],
-        [{"LOWER": {"IN": ["get", "find", "show", "list"]}}, {"OP": "*"}, {"LOWER": {"IN": ["patient", "patients"]}}]
-    ],
-    "create_patient": [
-        [{"LOWER": "create"}, {"LOWER": "patient"}],
-        [{"LOWER": "add"}, {"LOWER": "patient"}],
-        [{"LOWER": "register"}, {"LOWER": "patient"}]
-    ],
-    "search_condition": [
-        [{"LOWER": "search"}, {"LOWER": "condition"}],
-        [{"LOWER": "find"}, {"LOWER": "diagnosis"}],
-        [{"LOWER": "list"}, {"LOWER": "conditions"}]
-    ],
-    "get_observation": [
-        [{"LOWER": "get"}, {"LOWER": "observation"}],
-        [{"LOWER": "show"}, {"LOWER": "vitals"}],
-        [{"LOWER": "retrieve"}, {"LOWER": "measurements"}]
-    ]
-}
+# Load FHIR data into pandas DataFrames
+def load_fhir_data():
+    """Load FHIR JSON data and convert to pandas DataFrames"""
+    with open('fhir_generated_data.json', 'r') as f:
+        fhir_bundle = json.load(f)
+    
+    # Extract resources by type
+    patients = []
+    conditions = []
+    medications = []
+    medication_requests = []
+    observations = []
+    practitioners = []
+    
+    for entry in fhir_bundle['entry']:
+        resource = entry['resource']
+        resource_type = resource['resourceType']
+        
+        if resource_type == 'Patient':
+            patients.append({
+                'id': resource['id'],
+                'name': f"{resource['name'][0]['given'][0]} {resource['name'][0]['family']}",
+                'gender': resource['gender'],
+                'birthDate': resource['birthDate'],
+                'age': datetime.now().year - int(resource['birthDate'].split('-')[0])
+            })
+        elif resource_type == 'Condition':
+            conditions.append({
+                'id': resource['id'],
+                'patient_id': resource['subject']['reference'].split('/')[1],
+                'condition': resource['code']['text'],
+                'status': resource['clinicalStatus']['coding'][0]['code'],
+                'onset': resource.get('onsetDateTime', '')
+            })
+        elif resource_type == 'Medication':
+            medications.append({
+                'id': resource['id'],
+                'name': resource['code']['text'],
+                'status': resource['status'],
+                'form': resource['form']['text']
+            })
+        elif resource_type == 'MedicationRequest':
+            medication_requests.append({
+                'id': resource['id'],
+                'patient_id': resource['subject']['reference'].split('/')[1],
+                'medication_id': resource['medicationReference']['reference'].split('/')[1],
+                'status': resource['status'],
+                'authored_date': resource.get('authoredOn', '')
+            })
+        elif resource_type == 'Observation':
+            observations.append({
+                'id': resource['id'],
+                'patient_id': resource['subject']['reference'].split('/')[1],
+                'code': resource['code']['text'],
+                'value': resource.get('valueQuantity', {}).get('value', ''),
+                'unit': resource.get('valueQuantity', {}).get('unit', ''),
+                'date': resource.get('effectiveDateTime', '')
+            })
+        elif resource_type == 'Practitioner':
+            practitioners.append({
+                'id': resource['id'],
+                'name': f"{resource['name'][0]['given'][0]} {resource['name'][0]['family']}",
+                'gender': resource['gender']
+            })
+    
+    return {
+        'patients': pd.DataFrame(patients),
+        'conditions': pd.DataFrame(conditions),
+        'medications': pd.DataFrame(medications),
+        'medication_requests': pd.DataFrame(medication_requests),
+        'observations': pd.DataFrame(observations),
+        'practitioners': pd.DataFrame(practitioners)
+    }
 
-# Add patterns to matcher
-for intent, pattern_list in patterns.items():
-    matcher.add(intent, pattern_list)
+# Load data on startup
+fhir_data = load_fhir_data()
 
 
+# Pydantic Models
 class QueryRequest(BaseModel):
     query: str
 
 
-class Entity(BaseModel):
-    text: str
-    label: str
-    start: int
-    end: int
-
-
-class IntentResponse(BaseModel):
+class AgentResponse(BaseModel):
     query: str
-    intent: Union[str, None]
-    entities: List[Entity]
-    confidence: float
-    tokens: List[str]
-    pos_tags: List[str]
+    generated_code: str
+    result: Any
+    natural_language_response: str
+    execution_time: float
 
 
-class FHIRPatient(BaseModel):
-    resourceType: str = "Patient"
-    id: str
-    name: List[Dict[str, Any]]
-    gender: str
-    birthDate: str
-    age: int
+# Agent System Prompt
+AGENT_SYSTEM_PROMPT = """You are a healthcare data analyst AI assistant with access to a FHIR database loaded as pandas DataFrames.
+
+Available DataFrames:
+1. `patients` - Columns: id, name, gender, birthDate, age
+2. `conditions` - Columns: id, patient_id, condition, status, onset
+3. `medications` - Columns: id, name, status, form
+4. `medication_requests` - Columns: id, patient_id, medication_id, status, authored_date
+5. `observations` - Columns: id, patient_id, code, value, unit, date
+6. `practitioners` - Columns: id, name, gender
+
+Your job is to:
+1. Understand the user's natural language query about the FHIR data
+2. Write pandas code to answer their question
+3. Return ONLY the pandas code, no explanations
+
+Rules:
+- Use the DataFrame names as provided: patients, conditions, medications, medication_requests, observations, practitioners
+- Write clean, efficient pandas code
+- Handle edge cases (empty results, type conversions)
+- For counting, use .shape[0] or len()
+- For filtering, use boolean indexing
+- Join DataFrames when needed using merge()
+- Return the code wrapped in ```python and ``` markers
+- Do NOT include print statements
+- The code should evaluate to a result that can be displayed
+
+Example queries:
+- "How many patients have diabetes?" → patients.merge(conditions, left_on='id', right_on='patient_id')[conditions['condition'].str.contains('diabetes', case=False)].shape[0]
+- "List all female patients over 60" → patients[(patients['gender'] == 'female') & (patients['age'] > 60)]
+- "What medications is patient-1 taking?" → medication_requests[medication_requests['patient_id'] == 'patient-1'].merge(medications, left_on='medication_id', right_on='id')[['name', 'status']]
+"""
 
 
-class FHIRCondition(BaseModel):
-    resourceType: str = "Condition"
-    id: str
-    clinicalStatus: Dict[str, Any]
-    code: Dict[str, Any]
-    subject: Dict[str, str]
-    onsetDateTime: Optional[str] = None
-
-
-class FHIRBundle(BaseModel):
-    resourceType: str = "Bundle"
-    type: str = "searchset"
-    total: int
-    entry: List[Dict[str, Any]]
-
-
-class FHIRQueryResponse(BaseModel):
-    query: str
-    intent: Union[str, None]
-    entities: List[Entity]
-    fhir_request: Dict[str, Any]
-    fhir_response: FHIRBundle
-
-
-def extract_intent(query: str) -> IntentResponse:
-    """Extract intent and entities from query using spaCy"""
-    # Process the original query to preserve entities, but create lowercase version for matching
-    doc = nlp(query)
-    doc_lower = nlp(query.lower())
-    
-    # Find intent using matcher on lowercase version
-    matches = matcher(doc_lower)
-    intent = None
-    confidence = 0.0
-    
-    if matches:
-        match_id, start, end = matches[0]
-        intent = nlp.vocab.strings[match_id]
-        confidence = 0.9  # High confidence for pattern match
-    else:
-        # Fallback: simple verb-based intent detection
-        for token in doc_lower:
-            if token.pos_ == "VERB":
-                intent = f"action_{token.lemma_}"
-                confidence = 0.5
-                break
-    
-    # Extract entities from the original doc (not lowercased) for better accuracy
-    entities = [
-        {
-            "text": ent.text,
-            "label": ent.label_,
-            "start": ent.start_char,
-            "end": ent.end_char
-        }
-        for ent in doc.ents
-    ]
-    
-    # Add custom medical/numeric entity extraction
-    for token in doc:
-        # Extract numbers (age, quantities)
-        if token.like_num or token.pos_ == "NUM":
-            entities.append({
-                "text": token.text,
-                "label": "NUMBER",
-                "start": token.idx,
-                "end": token.idx + len(token.text)
-            })
-        # Extract potential medical conditions (adjectives that might be conditions)
-        if token.text.lower() in ["diabetic", "hypertensive", "asthmatic", "cardiac"]:
-            entities.append({
-                "text": token.text,
-                "label": "CONDITION",
-                "start": token.idx,
-                "end": token.idx + len(token.text)
-            })
-    
-    # Extract tokens and POS tags from original doc
-    tokens = [token.text for token in doc]
-    pos_tags = [token.pos_ for token in doc]
-    
-    return IntentResponse(
-        query=query,
-        intent=intent,
-        entities=entities,
-        confidence=confidence,
-        tokens=tokens,
-        pos_tags=pos_tags
-    )
-
-
-def generate_mock_patients(count: int, condition: str = None, min_age: int = None) -> List[FHIRPatient]:
-    """Generate mock FHIR Patient resources"""
-    patients = []
-    first_names = ["John", "Jane", "Michael", "Sarah", "David", "Emily", "Robert", "Lisa", "James", "Mary"]
-    last_names = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez"]
-    
-    for i in range(count):
-        age = random.randint(min_age if min_age else 30, 80)
-        birth_year = datetime.now().year - age
-        
-        patient = FHIRPatient(
-            id=f"patient-{i+1}",
-            name=[{
-                "use": "official",
-                "family": random.choice(last_names),
-                "given": [random.choice(first_names)]
-            }],
-            gender=random.choice(["male", "female"]),
-            birthDate=f"{birth_year}-{random.randint(1,12):02d}-{random.randint(1,28):02d}",
-            age=age
+def generate_pandas_code(query: str) -> str:
+    """Use Anthropic Claude to generate pandas code from natural language query"""
+    try:
+        response = client.messages.create(
+            model="claude-3-5-sonnet-20241022",
+            max_tokens=1024,
+            temperature=0.1,
+            system=AGENT_SYSTEM_PROMPT,
+            messages=[
+                {
+                    "role": "user",
+                    "content": f"Write pandas code to answer this query: {query}"
+                }
+            ]
         )
-        patients.append(patient)
-    
-    return patients
-
-
-def generate_mock_conditions(patient_id: str, condition_name: str) -> FHIRCondition:
-    """Generate mock FHIR Condition resource"""
-    condition_codes = {
-        "diabetic": {"code": "44054006", "display": "Type 2 diabetes mellitus"},
-        "diabetes": {"code": "44054006", "display": "Type 2 diabetes mellitus"},
-        "hypertensive": {"code": "38341003", "display": "Hypertensive disorder"},
-        "hypertension": {"code": "38341003", "display": "Hypertensive disorder"},
-        "asthmatic": {"code": "195967001", "display": "Asthma"},
-        "asthma": {"code": "195967001", "display": "Asthma"},
-        "cardiac": {"code": "56265001", "display": "Heart disease"}
-    }
-    
-    condition_info = condition_codes.get(condition_name.lower(), {
-        "code": "unknown",
-        "display": condition_name
-    })
-    
-    return FHIRCondition(
-        id=f"condition-{patient_id}",
-        clinicalStatus={
-            "coding": [{
-                "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-                "code": "active",
-                "display": "Active"
-            }]
-        },
-        code={
-            "coding": [{
-                "system": "http://snomed.info/sct",
-                "code": condition_info["code"],
-                "display": condition_info["display"]
-            }],
-            "text": condition_info["display"]
-        },
-        subject={"reference": f"Patient/{patient_id}"},
-        onsetDateTime=f"{datetime.now().year - random.randint(1, 10)}-01-01T00:00:00Z"
-    )
-
-
-def build_fhir_query(query: str, intent: str, entities: List[Entity]) -> FHIRQueryResponse:
-    """Convert natural language query to FHIR request and generate mock response"""
-    
-    # Extract parameters from entities
-    condition = None
-    age_threshold = None
-    count = 10  # default
-    
-    for entity in entities:
-        if entity.label == "CONDITION":
-            condition = entity.text
-        elif entity.label == "NUMBER":
-            # Could be age or count - use context to determine
-            num_value = int(entity.text)
-            if num_value > 20 and num_value < 120:  # likely an age
-                age_threshold = num_value
-            elif num_value <= 100:  # likely a count
-                count = min(num_value, 50)  # cap at 50 for demo
-    
-    # Build FHIR query parameters
-    fhir_params = {
-        "resourceType": "Patient"
-    }
-    
-    if age_threshold:
-        fhir_params["birthdate"] = f"le{datetime.now().year - age_threshold}"
-    
-    if condition:
-        fhir_params["_has:Condition:patient:code"] = condition
-    
-    # Generate mock FHIR response
-    patients = generate_mock_patients(count, condition, age_threshold)
-    
-    # Build bundle entries
-    entries = []
-    for patient in patients:
-        patient_entry = {
-            "fullUrl": f"http://example.com/fhir/Patient/{patient.id}",
-            "resource": patient.dict()
-        }
-        entries.append(patient_entry)
         
-        # Add condition if specified
-        if condition:
-            condition_resource = generate_mock_conditions(patient.id, condition)
-            condition_entry = {
-                "fullUrl": f"http://example.com/fhir/Condition/{condition_resource.id}",
-                "resource": condition_resource.dict()
-            }
-            entries.append(condition_entry)
-    
-    # Create FHIR Bundle
-    bundle = FHIRBundle(
-        total=len(patients),
-        entry=entries
-    )
-    
-    return FHIRQueryResponse(
-        query=query,
-        intent=intent,
-        entities=entities,
-        fhir_request={
-            "method": "GET",
-            "url": "/Patient",
-            "params": fhir_params
-        },
-        fhir_response=bundle
-    )
+        code = response.content[0].text.strip()
+        
+        # Extract code from markdown code blocks
+        if "```python" in code:
+            code = code.split("```python")[1].split("```")[0].strip()
+        elif "```" in code:
+            code = code.split("```")[1].split("```")[0].strip()
+        
+        return code
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to generate code: {str(e)}")
+
+
+def execute_pandas_code(code: str) -> Any:
+    """Safely execute pandas code with access to FHIR DataFrames"""
+    try:
+        # Create a safe execution environment with only necessary globals
+        safe_globals = {
+            'pd': pd,
+            'patients': fhir_data['patients'],
+            'conditions': fhir_data['conditions'],
+            'medications': fhir_data['medications'],
+            'medication_requests': fhir_data['medication_requests'],
+            'observations': fhir_data['observations'],
+            'practitioners': fhir_data['practitioners'],
+            'datetime': datetime
+        }
+        
+        # Execute the code
+        result = eval(code, safe_globals)
+        
+        # Convert result to serializable format
+        if isinstance(result, pd.DataFrame):
+            return result.to_dict('records')
+        elif isinstance(result, pd.Series):
+            return result.to_dict()
+        elif hasattr(result, 'item'):  # numpy types
+            return result.item()
+        else:
+            return result
+            
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Code execution error: {str(e)}")
+
+
+def generate_natural_language_response(query: str, result: Any) -> str:
+    """Convert the pandas result back to natural language"""
+    try:
+        result_str = str(result)
+        if len(result_str) > 2000:
+            result_str = result_str[:2000] + "... (truncated)"
+        
+        response = client.messages.create(
+            model="claude-3-5-sonnet-20241022",
+            max_tokens=512,
+            temperature=0.7,
+            system="You are a helpful healthcare assistant. Convert the data analysis result into a clear, natural language response. Be concise but informative.",
+            messages=[
+                {
+                    "role": "user",
+                    "content": f"User query: {query}\n\nAnalysis result: {result_str}\n\nProvide a natural language response to the user's query based on this result."
+                }
+            ]
+        )
+        
+        return response.content[0].text.strip()
+    except Exception as e:
+        return f"Result: {result}"
 
 
 @app.get("/")
 def read_root():
     return {
-        "message": "FastAPI Intent Extraction API with spaCy & FHIR Simulation",
+        "message": "Healthcare FHIR Agent API with Anthropic Claude",
+        "version": "2.0.0",
+        "model": "claude-3-5-sonnet-20241022",
         "endpoints": {
-            "/extract-intent": "POST - Extract intent from query",
-            "/analyze/{query}": "GET - Analyze query intent",
-            "/fhir-query": "POST - Convert natural language to FHIR query and get mock data"
-        }
+            "/query": "POST - Query FHIR data using natural language",
+            "/data-summary": "GET - Get summary of available data",
+            "/health": "GET - Health check"
+        },
+        "features": [
+            "Natural language to pandas queries",
+            "Anthropic Claude-powered code generation",
+            "FHIR R4 data support",
+            "Natural language responses"
+        ]
     }
 
 
-@app.post("/extract-intent", response_model=IntentResponse)
-def extract_intent_endpoint(request: QueryRequest):
-    """Extract intent from a given query using spaCy"""
+@app.get("/health")
+def health_check():
+    """Health check endpoint"""
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now().isoformat(),
+        "data_loaded": all(len(df) > 0 for df in fhir_data.values())
+    }
+
+
+@app.get("/data-summary")
+def data_summary():
+    """Get summary of loaded FHIR data"""
+    return {
+        "patients": len(fhir_data['patients']),
+        "conditions": len(fhir_data['conditions']),
+        "medications": len(fhir_data['medications']),
+        "medication_requests": len(fhir_data['medication_requests']),
+        "observations": len(fhir_data['observations']),
+        "practitioners": len(fhir_data['practitioners']),
+        "sample_queries": [
+            "How many patients do we have?",
+            "Show me all patients with diabetes",
+            "What is the average age of patients?",
+            "List all female patients over 60",
+            "How many patients have hypertension?",
+            "What medications are being prescribed?",
+            "Show me patients with multiple conditions",
+            "What are the most common conditions?",
+            "List all observations for patient-1"
+        ]
+    }
+
+
+@app.post("/query", response_model=AgentResponse)
+def query_fhir_data(request: QueryRequest):
+    """
+    Query FHIR data using natural language.
+    The AI agent will generate pandas code and return results in natural language.
+    """
     if not request.query.strip():
         raise HTTPException(status_code=400, detail="Query cannot be empty")
     
-    result = extract_intent(request.query)
-    return result
+    # Check for Anthropic API key
+    if not os.getenv("ANTHROPIC_API_KEY"):
+        raise HTTPException(
+            status_code=500,
+            detail="ANTHROPIC_API_KEY environment variable not set"
+        )
+    
+    start_time = datetime.now()
+    
+    try:
+        # Step 1: Generate pandas code using Anthropic Claude
+        generated_code = generate_pandas_code(request.query)
+        print(f"Generated Code:\n{generated_code}")
+        
+        # Step 2: Execute the code
+        result = execute_pandas_code(generated_code)
+        print(f"Execution Result:\n{result}")
+        
+        # Step 3: Convert result to natural language
+        nl_response = generate_natural_language_response(request.query, result)
+        print(f"Natural Language Response:\n{nl_response}")
+        
+        execution_time = (datetime.now() - start_time).total_seconds()
+        
+        return AgentResponse(
+            query=request.query,
+            generated_code=generated_code,
+            result=result,
+            natural_language_response=nl_response,
+            execution_time=execution_time
+        )
+        
+    except HTTPException as e:
+        raise e
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Unexpected error: {str(e)}")
 
 
-@app.post("/fhir-query", response_model=FHIRQueryResponse)
-def fhir_query_endpoint(request: QueryRequest):
-    """Convert natural language query to FHIR request and return mock FHIR data"""
-    if not request.query.strip():
-        raise HTTPException(status_code=400, detail="Query cannot be empty")
-    
-    # Extract intent and entities
-    intent_result = extract_intent(request.query)
-    
-    # Build FHIR query and get mock response
-    fhir_result = build_fhir_query(
-        request.query,
-        intent_result.intent,
-        intent_result.entities
-    )
-    
-    return fhir_result
+@app.get("/query-simple/{query}")
+def query_simple(query: str):
+    """Simple GET endpoint for quick queries"""
+    return query_fhir_data(QueryRequest(query=query))
 
 
-@app.get("/analyze/{query}", response_model=IntentResponse)
-def analyze_query(query: str):
-    """Analyze query intent via GET request"""
-    if not query.strip():
-        raise HTTPException(status_code=400, detail="Query cannot be empty")
-    
-    result = extract_intent(query)
-    return result
+# Example advanced endpoint with streaming
+@app.post("/query-stream")
+async def query_stream(request: QueryRequest):
+    """
+    Stream the agent's response in real-time (for future implementation)
+    """
+    # This could be implemented with Server-Sent Events or WebSockets
+    # For now, return the standard response
+    return query_fhir_data(request)
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    """Original endpoint - optionally extract intent from query parameter"""
-    response = {"item_id": item_id, "q": q}
-    
-    if q:
-        intent_result = extract_intent(q)
-        response["intent_analysis"] = intent_result
-    
-    return response
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
