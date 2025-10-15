@@ -4,4 +4,8 @@ spacy
 requests
 anthropic
 pandas
+<<<<<<< HEAD
 python-dotenv
+=======
+python-dotenv
+>>>>>>> 35fde4f45a87d821add154332c884532c51706f7
