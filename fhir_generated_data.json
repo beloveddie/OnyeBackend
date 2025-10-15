@@ -1,0 +1,5927 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100001"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "254-31-6448"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Lopez",
+            "given": [
+              "Richard",
+              "Ann"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-576-2270",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "richard.lopez@example.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1940-04-12",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "924 Elm Blvd"
+            ],
+            "city": "Boston",
+            "state": "MA",
+            "postalCode": "02101",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "D",
+              "display": "Divorced"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-2",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100002"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "517-45-3086"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Taylor",
+            "given": [
+              "Nancy",
+              "Ann"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-471-6624",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "nancy.taylor@example.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2005-07-25",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "669 Elm Ave"
+            ],
+            "city": "Seattle",
+            "state": "WA",
+            "postalCode": "98101",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M",
+              "display": "Single"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-3",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100003"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "624-19-8937"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Anderson",
+            "given": [
+              "Helen",
+              "Ray"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-824-5213",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "helen.anderson@example.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1945-09-13",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "534 Main Ave"
+            ],
+            "city": "Boston",
+            "state": "MA",
+            "postalCode": "02101",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "M",
+              "display": "Single"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-4",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100004"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "934-95-2554"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Taylor",
+            "given": [
+              "Joseph",
+              "Lee"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-460-2071",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "joseph.taylor@example.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1968-03-29",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "152 Main Blvd"
+            ],
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94118",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "W",
+              "display": "Single"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-5",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100005"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "373-31-8324"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Lopez",
+            "given": [
+              "James",
+              "Marie"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-805-3011",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "james.lopez@example.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1942-05-05",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "293 Elm Blvd"
+            ],
+            "city": "San Francisco",
+            "state": "CA",
+            "postalCode": "94118",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "D",
+              "display": "Divorced"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-6",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100006"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "520-44-7931"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Miller",
+            "given": [
+              "Helen",
+              "Ray"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-240-8297",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "helen.miller@example.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1974-09-26",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "929 Pine Ave"
+            ],
+            "city": "Denver",
+            "state": "CO",
+            "postalCode": "80201",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "S",
+              "display": "Single"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-7",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100007"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "917-31-1812"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Davis",
+            "given": [
+              "Robert",
+              "Robert"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-510-1596",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "robert.davis@example.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1981-12-08",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "166 Pine Ave"
+            ],
+            "city": "Anytown",
+            "state": "NY",
+            "postalCode": "10001",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "W",
+              "display": "Divorced"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-8",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-8",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100008"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "152-38-1647"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Martinez",
+            "given": [
+              "Nancy",
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-799-8533",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "nancy.martinez@example.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1995-02-20",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "438 Pine St"
+            ],
+            "city": "Liberty",
+            "state": "GA",
+            "postalCode": "30312",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "D",
+              "display": "Single"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-9",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100009"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "111-90-5963"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Johnson",
+            "given": [
+              "Karen",
+              "Lynn"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-663-1699",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "karen.johnson@example.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1957-06-07",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "816 Maple Blvd"
+            ],
+            "city": "Boston",
+            "state": "MA",
+            "postalCode": "02101",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "S",
+              "display": "Married"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Patient/patient-10",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-10",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hospital.example.org/identifiers/patients",
+            "value": "P100010"
+          },
+          {
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "959-95-8705"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Wilson",
+            "given": [
+              "Karen",
+              "Lee"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-951-9802",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "karen.wilson@example.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1986-01-16",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "555 Pine Ave"
+            ],
+            "city": "Miami",
+            "state": "FL",
+            "postalCode": "33101",
+            "country": "USA"
+          }
+        ],
+        "maritalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+              "code": "W",
+              "display": "Divorced"
+            }
+          ]
+        },
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Practitioner/practitioner-1",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "8755951512"
+          },
+          {
+            "system": "http://hospital.example.org/identifiers/practitioners",
+            "value": "MD-1001"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Jones",
+            "given": [
+              "Sarah"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "MD"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-578-7185",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "sarah.jones@hospital.example.org",
+            "use": "work"
+          }
+        ],
+        "gender": "female",
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360/2.7",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "Medical Doctor"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Practitioner/practitioner-2",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "7815861698"
+          },
+          {
+            "system": "http://hospital.example.org/identifiers/practitioners",
+            "value": "MD-1002"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Rodriguez",
+            "given": [
+              "Jennifer"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "MD"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-519-9364",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jennifer.rodriguez@hospital.example.org",
+            "use": "work"
+          }
+        ],
+        "gender": "female",
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360/2.7",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "Medical Doctor"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Practitioner/practitioner-3",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "9282201510"
+          },
+          {
+            "system": "http://hospital.example.org/identifiers/practitioners",
+            "value": "MD-1003"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Miller",
+            "given": [
+              "Robert"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "MD"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "555-380-8253",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "robert.miller@hospital.example.org",
+            "use": "work"
+          }
+        ],
+        "gender": "male",
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360/2.7",
+                  "code": "MD",
+                  "display": "Doctor of Medicine"
+                }
+              ],
+              "text": "Medical Doctor"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-1",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Type 2 diabetes mellitus"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "onsetDateTime": "2024-10-20",
+        "recordedDate": "2024-10-25",
+        "recorder": {
+          "reference": "Practitioner/practitioner-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "56265001",
+              "display": "Heart disease"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+            }
+          ],
+          "text": "Coronary artery disease"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "onsetDateTime": "2020-07-21",
+        "recordedDate": "2020-07-26",
+        "recorder": {
+          "reference": "Practitioner/practitioner-2"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-3",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "13645005",
+              "display": "Chronic obstructive lung disease"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J44.9",
+              "display": "Chronic obstructive pulmonary disease, unspecified"
+            }
+          ],
+          "text": "COPD"
+        },
+        "subject": {
+          "reference": "Patient/patient-2"
+        },
+        "onsetDateTime": "2022-04-16",
+        "recordedDate": "2022-04-21",
+        "recorder": {
+          "reference": "Practitioner/practitioner-3"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-4",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Type 2 diabetes mellitus"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "Patient/patient-3"
+        },
+        "onsetDateTime": "2019-02-23",
+        "recordedDate": "2019-02-28",
+        "recorder": {
+          "reference": "Practitioner/practitioner-2"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-5",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "195967001",
+              "display": "Asthma"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J45.909",
+              "display": "Unspecified asthma, uncomplicated"
+            }
+          ],
+          "text": "Asthma"
+        },
+        "subject": {
+          "reference": "Patient/patient-4"
+        },
+        "onsetDateTime": "2016-04-11",
+        "recordedDate": "2016-04-16",
+        "recorder": {
+          "reference": "Practitioner/practitioner-2"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-6",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "38341003",
+              "display": "Hypertensive disorder"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential (primary) hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "Patient/patient-5"
+        },
+        "onsetDateTime": "2023-02-01",
+        "recordedDate": "2023-02-06",
+        "recorder": {
+          "reference": "Practitioner/practitioner-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-7",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "56265001",
+              "display": "Heart disease"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+            }
+          ],
+          "text": "Coronary artery disease"
+        },
+        "subject": {
+          "reference": "Patient/patient-6"
+        },
+        "onsetDateTime": "2021-06-25",
+        "recordedDate": "2021-06-30",
+        "recorder": {
+          "reference": "Practitioner/practitioner-3"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-8",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-8",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "84757009",
+              "display": "Epilepsy"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G40.909",
+              "display": "Epilepsy, unspecified, not intractable, without status epilepticus"
+            }
+          ],
+          "text": "Epilepsy"
+        },
+        "subject": {
+          "reference": "Patient/patient-6"
+        },
+        "onsetDateTime": "2021-04-16",
+        "recordedDate": "2021-04-21",
+        "recorder": {
+          "reference": "Practitioner/practitioner-2"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-9",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "195967001",
+              "display": "Asthma"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J45.909",
+              "display": "Unspecified asthma, uncomplicated"
+            }
+          ],
+          "text": "Asthma"
+        },
+        "subject": {
+          "reference": "Patient/patient-6"
+        },
+        "onsetDateTime": "2020-03-29",
+        "recordedDate": "2020-04-03",
+        "recorder": {
+          "reference": "Practitioner/practitioner-2"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-10",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-10",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "396275006",
+              "display": "Osteoarthritis"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M19.90",
+              "display": "Unspecified osteoarthritis, unspecified site"
+            }
+          ],
+          "text": "Osteoarthritis"
+        },
+        "subject": {
+          "reference": "Patient/patient-7"
+        },
+        "onsetDateTime": "2023-01-03",
+        "recordedDate": "2023-01-08",
+        "recorder": {
+          "reference": "Practitioner/practitioner-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-11",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-11",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "38341003",
+              "display": "Hypertensive disorder"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential (primary) hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "Patient/patient-7"
+        },
+        "onsetDateTime": "2023-01-08",
+        "recordedDate": "2023-01-13",
+        "recorder": {
+          "reference": "Practitioner/practitioner-2"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-12",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-12",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "56265001",
+              "display": "Heart disease"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+            }
+          ],
+          "text": "Coronary artery disease"
+        },
+        "subject": {
+          "reference": "Patient/patient-7"
+        },
+        "onsetDateTime": "2015-12-27",
+        "recordedDate": "2016-01-01",
+        "recorder": {
+          "reference": "Practitioner/practitioner-3"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-13",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-13",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "396275006",
+              "display": "Osteoarthritis"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "M19.90",
+              "display": "Unspecified osteoarthritis, unspecified site"
+            }
+          ],
+          "text": "Osteoarthritis"
+        },
+        "subject": {
+          "reference": "Patient/patient-8"
+        },
+        "onsetDateTime": "2015-12-10",
+        "recordedDate": "2015-12-15",
+        "recorder": {
+          "reference": "Practitioner/practitioner-3"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-14",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-14",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "38341003",
+              "display": "Hypertensive disorder"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential (primary) hypertension"
+            }
+          ],
+          "text": "Hypertension"
+        },
+        "subject": {
+          "reference": "Patient/patient-9"
+        },
+        "onsetDateTime": "2021-01-16",
+        "recordedDate": "2021-01-21",
+        "recorder": {
+          "reference": "Practitioner/practitioner-2"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-15",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-15",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "56265001",
+              "display": "Heart disease"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I25.10",
+              "display": "Atherosclerotic heart disease of native coronary artery without angina pectoris"
+            }
+          ],
+          "text": "Coronary artery disease"
+        },
+        "subject": {
+          "reference": "Patient/patient-9"
+        },
+        "onsetDateTime": "2024-08-21",
+        "recordedDate": "2024-08-26",
+        "recorder": {
+          "reference": "Practitioner/practitioner-2"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-16",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-16",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Type 2 diabetes mellitus"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E11.9",
+              "display": "Type 2 diabetes mellitus without complications"
+            }
+          ],
+          "text": "Type 2 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "Patient/patient-9"
+        },
+        "onsetDateTime": "2023-12-30",
+        "recordedDate": "2024-01-04",
+        "recorder": {
+          "reference": "Practitioner/practitioner-3"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-17",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-17",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "73211009",
+              "display": "Diabetes mellitus"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E10.9",
+              "display": "Type 1 diabetes mellitus without complications"
+            }
+          ],
+          "text": "Type 1 diabetes mellitus"
+        },
+        "subject": {
+          "reference": "Patient/patient-10"
+        },
+        "onsetDateTime": "2022-05-24",
+        "recordedDate": "2022-05-29",
+        "recorder": {
+          "reference": "Practitioner/practitioner-1"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Condition/condition-18",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-18",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "13645005",
+              "display": "Chronic obstructive lung disease"
+            },
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "J44.9",
+              "display": "Chronic obstructive pulmonary disease, unspecified"
+            }
+          ],
+          "text": "COPD"
+        },
+        "subject": {
+          "reference": "Patient/patient-10"
+        },
+        "onsetDateTime": "2019-12-25",
+        "recordedDate": "2019-12-30",
+        "recorder": {
+          "reference": "Practitioner/practitioner-3"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Medication/medication-1",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "medication-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197361",
+              "display": "Amlodipine 5 MG Oral Tablet"
+            }
+          ],
+          "text": "Amlodipine 5 mg oral tablet"
+        },
+        "status": "active",
+        "form": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385055001",
+              "display": "Tablet"
+            }
+          ],
+          "text": "Tablet"
+        },
+        "ingredient": [
+          {
+            "itemCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "17767",
+                  "display": "Amlodipine"
+                }
+              ],
+              "text": "Amlodipine"
+            },
+            "strength": {
+              "numerator": {
+                "value": 5,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "tablet",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                "code": "TAB"
+              }
+            }
+          }
+        ],
+        "batch": {
+          "lotNumber": "1197764",
+          "expirationDate": "2028-04-22"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Medication/medication-2",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "medication-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197361",
+              "display": "Amlodipine 5 MG Oral Tablet"
+            }
+          ],
+          "text": "Amlodipine 5 mg oral tablet"
+        },
+        "status": "active",
+        "form": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385055001",
+              "display": "Tablet"
+            }
+          ],
+          "text": "Tablet"
+        },
+        "ingredient": [
+          {
+            "itemCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "17767",
+                  "display": "Amlodipine"
+                }
+              ],
+              "text": "Amlodipine"
+            },
+            "strength": {
+              "numerator": {
+                "value": 5,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "tablet",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                "code": "TAB"
+              }
+            }
+          }
+        ],
+        "batch": {
+          "lotNumber": "1204200",
+          "expirationDate": "2026-12-27"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Medication/medication-3",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "medication-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "860975",
+              "display": "Metformin hydrochloride 500 MG Oral Tablet"
+            }
+          ],
+          "text": "Metformin 500 mg oral tablet"
+        },
+        "status": "active",
+        "form": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385055001",
+              "display": "Tablet"
+            }
+          ],
+          "text": "Tablet"
+        },
+        "ingredient": [
+          {
+            "itemCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "6809",
+                  "display": "Metformin"
+                }
+              ],
+              "text": "Metformin"
+            },
+            "strength": {
+              "numerator": {
+                "value": 500,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "tablet",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                "code": "TAB"
+              }
+            }
+          }
+        ],
+        "batch": {
+          "lotNumber": "3348147",
+          "expirationDate": "2028-02-13"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Medication/medication-4",
+      "resource": {
+        "resourceType": "Medication",
+        "id": "medication-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "197361",
+              "display": "Amlodipine 5 MG Oral Tablet"
+            }
+          ],
+          "text": "Amlodipine 5 mg oral tablet"
+        },
+        "status": "active",
+        "form": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "385055001",
+              "display": "Tablet"
+            }
+          ],
+          "text": "Tablet"
+        },
+        "ingredient": [
+          {
+            "itemCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "17767",
+                  "display": "Amlodipine"
+                }
+              ],
+              "text": "Amlodipine"
+            },
+            "strength": {
+              "numerator": {
+                "value": 5,
+                "unit": "mg",
+                "system": "http://unitsofmeasure.org",
+                "code": "mg"
+              },
+              "denominator": {
+                "value": 1,
+                "unit": "tablet",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                "code": "TAB"
+              }
+            }
+          }
+        ],
+        "batch": {
+          "lotNumber": "4352546",
+          "expirationDate": "2027-09-13"
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-1",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-4"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "authoredOn": "2025-01-27",
+        "requester": {
+          "reference": "Practitioner/practitioner-2"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-1"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth once daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 4,
+          "quantity": {
+            "value": 60,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-2",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-1"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "authoredOn": "2025-06-08",
+        "requester": {
+          "reference": "Practitioner/practitioner-2"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-2"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth three times daily",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 6,
+          "quantity": {
+            "value": 60,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-3",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-4"
+        },
+        "subject": {
+          "reference": "Patient/patient-2"
+        },
+        "authoredOn": "2025-07-29",
+        "requester": {
+          "reference": "Practitioner/practitioner-3"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-3"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth three times daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 10,
+          "quantity": {
+            "value": 90,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-4",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-2"
+        },
+        "subject": {
+          "reference": "Patient/patient-4"
+        },
+        "authoredOn": "2025-05-24",
+        "requester": {
+          "reference": "Practitioner/practitioner-2"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-5"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth three times daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 11,
+          "quantity": {
+            "value": 60,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-5",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-4"
+        },
+        "subject": {
+          "reference": "Patient/patient-5"
+        },
+        "authoredOn": "2025-05-10",
+        "requester": {
+          "reference": "Practitioner/practitioner-3"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-6"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth once daily",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 5,
+          "quantity": {
+            "value": 60,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-6",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-2"
+        },
+        "subject": {
+          "reference": "Patient/patient-6"
+        },
+        "authoredOn": "2025-09-23",
+        "requester": {
+          "reference": "Practitioner/practitioner-2"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-7"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth twice daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 9,
+          "quantity": {
+            "value": 60,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-7",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-3"
+        },
+        "subject": {
+          "reference": "Patient/patient-7"
+        },
+        "authoredOn": "2025-08-17",
+        "requester": {
+          "reference": "Practitioner/practitioner-2"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-10"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth once daily",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 7,
+          "quantity": {
+            "value": 90,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-8",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-8",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-1"
+        },
+        "subject": {
+          "reference": "Patient/patient-7"
+        },
+        "authoredOn": "2025-09-08",
+        "requester": {
+          "reference": "Practitioner/practitioner-3"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-11"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth twice daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 10,
+          "quantity": {
+            "value": 60,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-9",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-4"
+        },
+        "subject": {
+          "reference": "Patient/patient-8"
+        },
+        "authoredOn": "2025-09-21",
+        "requester": {
+          "reference": "Practitioner/practitioner-1"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-13"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth once daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 3,
+          "quantity": {
+            "value": 30,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-10",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-10",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-3"
+        },
+        "subject": {
+          "reference": "Patient/patient-9"
+        },
+        "authoredOn": "2024-12-06",
+        "requester": {
+          "reference": "Practitioner/practitioner-3"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-15"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth twice daily",
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 8,
+          "quantity": {
+            "value": 60,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-11",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-11",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-4"
+        },
+        "subject": {
+          "reference": "Patient/patient-9"
+        },
+        "authoredOn": "2025-04-27",
+        "requester": {
+          "reference": "Practitioner/practitioner-1"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-16"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth three times daily",
+            "timing": {
+              "repeat": {
+                "frequency": 1,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 10,
+          "quantity": {
+            "value": 90,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-12",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-12",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-3"
+        },
+        "subject": {
+          "reference": "Patient/patient-10"
+        },
+        "authoredOn": "2025-02-09",
+        "requester": {
+          "reference": "Practitioner/practitioner-3"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-17"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth three times daily",
+            "timing": {
+              "repeat": {
+                "frequency": 2,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 5,
+          "quantity": {
+            "value": 30,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/MedicationRequest/med-request-13",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-request-13",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "medicationReference": {
+          "reference": "Medication/medication-4"
+        },
+        "subject": {
+          "reference": "Patient/patient-10"
+        },
+        "authoredOn": "2025-09-01",
+        "requester": {
+          "reference": "Practitioner/practitioner-3"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-18"
+          }
+        ],
+        "dosageInstruction": [
+          {
+            "text": "Take 1 tablet by mouth twice daily",
+            "timing": {
+              "repeat": {
+                "frequency": 3,
+                "period": 1,
+                "periodUnit": "d"
+              }
+            },
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ],
+              "text": "Oral"
+            },
+            "doseAndRate": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/dose-rate-type",
+                      "code": "ordered",
+                      "display": "Ordered"
+                    }
+                  ]
+                },
+                "doseQuantity": {
+                  "value": 1,
+                  "unit": "tablet",
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+                  "code": "TAB"
+                }
+              }
+            ]
+          }
+        ],
+        "dispenseRequest": {
+          "numberOfRepeatsAllowed": 11,
+          "quantity": {
+            "value": 30,
+            "unit": "tablet",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm",
+            "code": "TAB"
+          },
+          "expectedSupplyDuration": {
+            "value": 30,
+            "unit": "days",
+            "system": "http://unitsofmeasure.org",
+            "code": "d"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2025-05-21T18:52:59.445962Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-1"
+          }
+        ],
+        "valueQuantity": {
+          "value": 128,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-1"
+        },
+        "effectiveDateTime": "2025-09-06T18:52:59.445984Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-1"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 123,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 84,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-2"
+        },
+        "effectiveDateTime": "2025-06-08T18:52:59.446244Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "valueQuantity": {
+          "value": 192,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-2"
+        },
+        "effectiveDateTime": "2025-09-29T18:52:59.446256Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "valueQuantity": {
+          "value": 171,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/patient-2"
+        },
+        "effectiveDateTime": "2025-06-06T18:52:59.446266Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-1"
+          }
+        ],
+        "valueQuantity": {
+          "value": 6.0,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "text": "Normal HbA1c range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/patient-3"
+        },
+        "effectiveDateTime": "2025-08-03T18:52:59.446569Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "valueQuantity": {
+          "value": 8.8,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "text": "Normal HbA1c range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-3"
+        },
+        "effectiveDateTime": "2025-07-26T18:52:59.446584Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "valueQuantity": {
+          "value": 143,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-8",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-3"
+        },
+        "effectiveDateTime": "2025-07-24T18:52:59.446592Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 127,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 88,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/patient-4"
+        },
+        "effectiveDateTime": "2025-08-28T18:52:59.446676Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "valueQuantity": {
+          "value": 5.5,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "text": "Normal HbA1c range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-10",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-4"
+        },
+        "effectiveDateTime": "2025-06-17T18:52:59.446686Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 138,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 98,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-11",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-11",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/patient-4"
+        },
+        "effectiveDateTime": "2025-06-09T18:52:59.446696Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "valueQuantity": {
+          "value": 5.9,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "text": "Normal HbA1c range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-12",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-4"
+        },
+        "effectiveDateTime": "2025-05-26T18:52:59.446705Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 153,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 74,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-13",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-13",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-5"
+        },
+        "effectiveDateTime": "2025-04-19T18:52:59.446767Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 113,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 86,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-14",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-14",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-5"
+        },
+        "effectiveDateTime": "2025-08-22T18:52:59.446776Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "valueQuantity": {
+          "value": 96,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-15",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-15",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/patient-5"
+        },
+        "effectiveDateTime": "2025-05-21T18:52:59.446785Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-1"
+          }
+        ],
+        "valueQuantity": {
+          "value": 7.6,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "text": "Normal HbA1c range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-16",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-16",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-6"
+        },
+        "effectiveDateTime": "2025-05-21T18:52:59.446874Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 131,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 71,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-17",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-17",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-6"
+        },
+        "effectiveDateTime": "2025-04-22T18:52:59.446884Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 149,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 80,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-18",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-18",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-6"
+        },
+        "effectiveDateTime": "2025-08-19T18:52:59.446893Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 113,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 78,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-19",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-19",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/patient-6"
+        },
+        "effectiveDateTime": "2025-06-09T18:52:59.446901Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-1"
+          }
+        ],
+        "valueQuantity": {
+          "value": 6.2,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "text": "Normal HbA1c range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-20",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-20",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-7"
+        },
+        "effectiveDateTime": "2025-07-02T18:52:59.447009Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "valueQuantity": {
+          "value": 150,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-21",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-21",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-7"
+        },
+        "effectiveDateTime": "2025-06-06T18:52:59.447016Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 141,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 97,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-22",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-22",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-8"
+        },
+        "effectiveDateTime": "2025-07-05T18:52:59.447076Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-1"
+          }
+        ],
+        "valueQuantity": {
+          "value": 98,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-23",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-23",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-8"
+        },
+        "effectiveDateTime": "2025-06-08T18:52:59.447085Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 159,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 84,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-24",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-24",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-8"
+        },
+        "effectiveDateTime": "2025-05-24T18:52:59.447095Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "valueQuantity": {
+          "value": 144,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-25",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-25",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "2339-0",
+              "display": "Glucose [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Blood Glucose"
+        },
+        "subject": {
+          "reference": "Patient/patient-8"
+        },
+        "effectiveDateTime": "2025-04-18T18:52:59.447101Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-3"
+          }
+        ],
+        "valueQuantity": {
+          "value": 79,
+          "unit": "mg/dL",
+          "system": "http://unitsofmeasure.org",
+          "code": "mg/dL"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 70,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "high": {
+              "value": 100,
+              "unit": "mg/dL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mg/dL"
+            },
+            "text": "Normal fasting glucose range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "N",
+                "display": "Normal"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-26",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-26",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-9"
+        },
+        "effectiveDateTime": "2025-05-23T18:52:59.447198Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 149,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 71,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-27",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-27",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-9"
+        },
+        "effectiveDateTime": "2025-09-07T18:52:59.447209Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-1"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 126,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 88,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-28",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-28",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-blood-pressure"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "Blood pressure panel with all children optional"
+            }
+          ],
+          "text": "Blood Pressure"
+        },
+        "subject": {
+          "reference": "Patient/patient-9"
+        },
+        "effectiveDateTime": "2025-06-28T18:52:59.447215Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8480-6",
+                  "display": "Systolic blood pressure"
+                }
+              ],
+              "text": "Systolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 123,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "8462-4",
+                  "display": "Diastolic blood pressure"
+                }
+              ],
+              "text": "Diastolic Blood Pressure"
+            },
+            "valueQuantity": {
+              "value": 78,
+              "unit": "mmHg",
+              "system": "http://unitsofmeasure.org",
+              "code": "mm[Hg]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-29",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-29",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/patient-10"
+        },
+        "effectiveDateTime": "2025-08-16T18:52:59.447298Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "valueQuantity": {
+          "value": 8.8,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "text": "Normal HbA1c range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "http://example.org/fhir/Observation/observation-30",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-30",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "4548-4",
+              "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+            }
+          ],
+          "text": "HbA1c"
+        },
+        "subject": {
+          "reference": "Patient/patient-10"
+        },
+        "effectiveDateTime": "2025-07-28T18:52:59.447307Z",
+        "performer": [
+          {
+            "reference": "Practitioner/practitioner-2"
+          }
+        ],
+        "valueQuantity": {
+          "value": 7.1,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "referenceRange": [
+          {
+            "low": {
+              "value": 4.0,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "high": {
+              "value": 5.6,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            },
+            "text": "Normal HbA1c range"
+          }
+        ],
+        "interpretation": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+                "code": "H",
+                "display": "High"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
