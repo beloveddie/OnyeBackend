@@ -2,3 +2,6 @@ fastapi
 uvicorn[standard]
 spacy
 requests
+anthropic
+pandas
+python-dotenv
