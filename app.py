@@ -1,5 +1,6 @@
 from typing import Union, Dict, List, Any, Optional
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import json
 import pandas as pd
@@ -11,6 +12,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI(title="Healthcare FHIR Agent API", version="2.0.0")
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[os.getenv("FRONTEND_URL")], # Adjusted for security
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Initialize Anthropic client
 client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
