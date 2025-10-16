@@ -16,7 +16,7 @@ app = FastAPI(title="Healthcare FHIR Agent API", version="2.0.0")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("FRONTEND_URL")], # Adjusted for security
+    allow_origins=["*"], # Adjusted for security
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
